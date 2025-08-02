@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     parameters {
-        choice(name: 'ENV', choices: ['dev', 'staging', 'prod'], description: 'Environment to deploy to')
+        choice(name: 'ENV', choices: ['dev', 'staging', 'prod', 'main', 'master'], description: 'Environment to deploy to')
         string(name: 'VERSION', defaultValue: 'latest', description: 'Version tag or label')
     }
 
@@ -11,12 +11,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                git url: 'https://github.com/Kritika786/Jenkins-deployment.git', branch: 'main'
-            }
-        }
-
         stage('Install Dependencies') {
             steps {
                 sh 'pip install -r requirements.txt'
@@ -51,4 +45,3 @@ pipeline {
         }
     }
 }
-
