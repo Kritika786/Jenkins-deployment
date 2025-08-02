@@ -25,7 +25,7 @@ pipeline {
 
         stage('Build Artifact') {
             steps {
-                sh 'sh "zip -r myapp-${env.VERSION}.zip ."'
+                sh "zip -r myapp-${env.VERSION}.zip ."
             }
         }
 
