@@ -5,7 +5,7 @@ VERSION=$2
 
 echo "🚀 Deploying version $VERSION to $ENV..."
 
-TARGET_HOST="ec2-user@<your-ec2-ip>"
+TARGET_HOST="ec2-user@13.218.47.134"
 APP_DIR="/home/ec2-user/myapp"
 
 scp myapp-${VERSION}.zip $TARGET_HOST:/tmp/
