@@ -30,11 +30,13 @@ pipeline {
         }
 
         stage('Deploy') {
-            steps {
-                chmod +x ${DEPLOY_SCRIPT}
-                sh "${DEPLOY_SCRIPT} ${params.ENV} ${params.VERSION}"
-            }
-        }
+    steps {
+        sh """
+            chmod +x ${DEPLOY_SCRIPT}
+            ${DEPLOY_SCRIPT} ${ENV} ${VERSION}
+        """
+    }
+}
     }
 
     post {
